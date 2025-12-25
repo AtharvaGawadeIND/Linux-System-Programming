@@ -1,0 +1,89 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//  Required header files
+//
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+#include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//  Function Name : ReadNBytes
+//  Description   : Reads N bytes from a file and prints on console
+//  Input         : File name, Number of bytes
+//  Output        : Prints read content
+//  Author        : Atharva Vinod Gawade
+//  Date          : 25/12/2025
+//
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+void ReadNBytes(char filename[], int n)
+{
+    int fd = 0;
+    char buffer[102];
+    int bytesRead = 0;
+
+    fd = open(filename, O_RDONLY);
+    if (fd == -1)
+    {
+        perror("open");
+        return;
+    }
+
+    bytesRead = read(fd, buffer, n);
+    if (bytesRead == -1)
+    {
+        perror("read");
+    }
+    else
+    {
+        write(1, buffer, bytesRead);
+    }
+
+    close(fd);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//  Entry point function
+//
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+int main()
+{
+    char filename[101];
+    int n;
+
+    printf("Enter file name : \n");
+    scanf("%s", filename);
+
+    printf("Enter number of bytes : \n");
+    scanf("%d", &n);
+
+    ReadNBytes(filename, n);
+    return 0;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//  Testcases successfully handled by the application
+//
+//  Input:
+//  Enter file name : 
+//  Atharva.c
+//  Enter number of bytes : 
+//  4
+//  Output:
+//  #inc
+//
+//  Input:
+//  Enter file name : 
+//  Demo.txt
+//  Enter number of bytes : 
+//  6
+//  Outpout:
+//  India
+//
+/////////////////////////////////////////////////////////////////////////////////////////////////
