@@ -29,14 +29,14 @@ long long LargestSize = 0;
 ///////////////////////////////////////////////////////////////////////////////////////
 //
 //  Function Name   : DirectoryReport
-//  Description     : Recursively traverses directory structure and calculates
+//  Description     : Travels directory structure and calculates
 //                    total number of files, total number of directories,
 //                    total size of regular files and largest file details.
 //                    Symbolic link sizes are ignored.
 //  Input           : Character Pointer
 //  Output          : Void
 //  Author          : Atharva Vinod Gawade
-//  Date            : 20/11/2025
+//  Date            : 2/12/2026
 //
 ///////////////////////////////////////////////////////////////////////////////////////
 
