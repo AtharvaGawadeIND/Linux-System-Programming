@@ -1,2 +1,0 @@
-Hello,
-this is the source file for sample linux code 
